@@ -56,7 +56,7 @@ def Register(request):
                     messages.success(request, "Something went wrong Please Try again")
                     return redirect("Register")
 
-        return render(request, "Register.html", {"form": form})
+        return render(request, "forms/Register.html", {"form": form})
 
 
 def Logout_user(request):
@@ -87,10 +87,10 @@ def Update(request):
                 return redirect("Detail")
             else:
                 messages.success(request, "Something went wrong Please Try again")
-                return render(request, "Update.html", {"form": form})
+                return render(request, "forms/Update.html", {"form": form})
         else:
             form = UpdateForm(instance=request.user)
-            return render(request, "Update.html", {"form": form})
+            return render(request, "forms/Update.html", {"form": form})
     else:
         messages.success(request, "You have to be Logged In")
         return redirect("Home")
@@ -108,10 +108,10 @@ def UpdatePassword(request):
                 return redirect("Detail")
             else:
                 messages.success(request, "Something went wrong Please Try again")
-                return render(request, "UpdatePassword.html", {"form": form})
+                return render(request, "forms/UpdatePassword.html", {"form": form})
         else:
             form = ChangePasswordForm(user=request.user)
-            return render(request, "UpdatePassword.html", {"form": form})
+            return render(request, "forms/UpdatePassword.html", {"form": form})
     else:
         messages.success(request, "You have to be Logged In")
         return redirect("Home")
