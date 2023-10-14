@@ -1,0 +1,18 @@
+{% extends 'Base.html' %}
+<!--  -->
+{% block title %}Detail{% endblock %}
+<!--  -->
+{% block content %}
+<h1 class="mb-3 text-center text-light">Personal Info</h1>
+{% for item in record %}
+<div class="text-light">
+  <p><strong>Username: </strong>{{ item.username }}</p>
+  <p><strong>First Name: </strong>{{ item.first_name }}</p>
+  <p><strong>Last Name: </strong>{{ item.last_name }}</p>
+  <p><strong>Email: </strong>{{ item.email }}</p>
+</div>
+{% endfor %}
+<a href="{% url 'Update' %}" class="btn btn-success">Update</a>
+<a href="{% url 'Logout' %}" class="btn btn-secondary">Logout</a>
+<a href="{% url 'Delete' %}" class="btn btn-danger">Delete</a>
+{% endblock %}

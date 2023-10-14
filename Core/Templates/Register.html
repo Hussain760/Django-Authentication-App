@@ -1,0 +1,15 @@
+{% extends 'Base.html' %}
+<!--  -->
+{% block title %}Sign In{% endblock %}
+<!--  -->
+{% block content %}
+<div class="col-md-6 offset-md-3 text-light">
+  <h1 class="mb-3">Sign in</h1>
+  <form action="{% url 'Register' %}" method="POST">
+    {% csrf_token %}
+    <!--  -->
+    {{ form.as_p }}
+    <button class="btn btn-primary">Sign in</button>
+  </form>
+</div>
+{% endblock %}

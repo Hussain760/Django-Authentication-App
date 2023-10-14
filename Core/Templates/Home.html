@@ -1,0 +1,44 @@
+{% extends 'Base.html' %}
+<!--  -->
+{% block title %}Login{% endblock %}
+<!--  -->
+{% block content %}
+<div class="col-md-6 offset-md-3 text-light">
+  <h1 class="mb-3">Login</h1>
+  <form method="POST" action="{% url 'Home' %}">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Username</label>
+      <input
+        type="text"
+        class="form-control bg-dark text-light"
+        id="exampleInputEmail1"
+        name="username"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control bg-dark text-light"
+        id="exampleInputPassword1"
+        name="password"
+        required
+      />
+      <small
+        ><a href="{% url 'reset_password' %}" class="float-end text-light"
+          >Forgot Password</a
+        ></small
+      >
+    </div>
+    <div class="mb-3">
+      <small
+        >Don't Have an Account
+        <a href="{% url 'Register' %}" class="text-light">Sign in</a></small
+      >
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+</div>
+{% endblock %}
